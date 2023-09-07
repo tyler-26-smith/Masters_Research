@@ -1,0 +1,155 @@
+rm(list=ls())
+setwd("C:/Users/tylersmith22/Documents/Micro Plastics/SL_tile_sed_analy")
+clean_raw <- read.csv("clean_raw.csv")
+meas_h <- read.csv("meas_height.csv")
+stationing_df <- read.csv("stationing_sorted.csv")
+
+setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy")
+plot(stationing_df$stationing[c(1:25)], stationing_df$tile_dry_g[c(1:25)], pch = 16,
+     xlim = c(0, max(stationing_df$stationing[c(1:75)])),
+     ylim = c(0, max(stationing_df$tile_dry_g[c(1:75)])),
+     xlab = "Stationing (m)",
+     ylab = "Sediment Accumulation (g)",
+     main = "SL Sediment Accumulation")+
+  points(stationing_df$stationing[c(26:50)], stationing_df$tile_dry_g[c(26:50)], pch = 16, col ="blue")+
+  points(stationing_df$stationing[c(51:75)], stationing_df$tile_dry_g[c(51:75)], pch = 16, col = "red")+
+  legend(x = "topleft", text.font = 4, 
+         fill = c("black","blue","red"),text.col = "black", 
+         legend=c("x-secs 1", "x-secs 2", "x-secs 3"))
+
+one_one <- stationing_df[c(1:5), c(2,4,8:11)]
+one_two <- stationing_df[c(6:10), c(2,4,8:11)]
+one_three <- stationing_df[c(11:15), c(2,4,8:11)]
+one_four <- stationing_df[c(16:20), c(2,4,8:11)]
+one_five <- stationing_df[c(21:25), c(2,4,8:11)]
+two_one <- stationing_df[c(26:30), c(2,4,8:11)]
+two_two <- stationing_df[c(31:35), c(2,4,8:11)]
+two_three <- stationing_df[c(36:40), c(2,4,8:11)]
+two_four <- stationing_df[c(41:45), c(2,4,8:11)]
+two_five <- stationing_df[c(46:50), c(2,4,8:11)]
+three_one <- stationing_df[c(51:55), c(2,4,8:11)]
+three_two <- stationing_df[c(56:60), c(2,4,8:11)]
+three_three <- stationing_df[c(61:65), c(2,4,8:11)]
+three_four <- stationing_df[c(66:70), c(2,4,8:11)]
+three_five <- stationing_df[c(71:75), c(2,4,8:11)]
+
+plot(one_one$stationing, one_one$tile_dry_g, pch = 16,
+     xlim = c(0, max(stationing_df$stationing[c(1:25)])),
+     ylim = c(0, max(stationing_df$tile_dry_g[c(1:25)])),
+     xlab = "Stationing (m)",
+     ylab = "Sediment Accumulation (g)",
+     main = "Section 1 X-Sec")+
+  points(one_two$stationing, one_two$tile_dry_g, col = "blue", pch = 16)+
+  points(one_three$stationing, one_three$tile_dry_g, col = "green", pch = 16)+
+  points(one_four$stationing, one_four$tile_dry_g, col = "grey", pch = 16)+
+  points(one_five$stationing, one_five$tile_dry_g, col = "red", pch = 16)+
+  lines(one_one$stationing, one_one$tile_dry_g, pch = 16)+
+  lines(one_two$stationing, one_two$tile_dry_g, col = "blue", pch = 16)+
+  lines(one_three$stationing, one_three$tile_dry_g, col = "green", pch = 16)+
+  lines(one_four$stationing, one_four$tile_dry_g, col = "grey", pch = 16)+
+  lines(one_five$stationing, one_five$tile_dry_g, col = "red", pch = 16)+
+  legend(x = "topleft", text.font = 4, 
+         fill = c("black","blue","green","grey","red"),text.col = "black", 
+         legend=c("1.1", "1.2", "1.3","1.4","1.5"))
+
+plot(two_one$stationing, two_one$tile_dry_g, pch = 16,
+              xlim = c(0, max(stationing_df$stationing[c(26:50)])),
+              ylim = c(0, max(stationing_df$tile_dry_g[c(26:50)])),
+              xlab = "Stationing (m)",
+              ylab = "Sediment Accumulation (g)",
+              main = "Section 2 X-Sec")+
+  points(two_two$stationing, two_two$tile_dry_g, col = "blue", pch = 16)+
+  points(two_three$stationing, two_three$tile_dry_g, col = "green", pch = 16)+
+  points(two_four$stationing, two_four$tile_dry_g, col = "grey", pch = 16)+
+  points(two_five$stationing, two_five$tile_dry_g, col = "red", pch = 16)+
+  lines(two_one$stationing, two_one$tile_dry_g, pch = 16)+
+  lines(two_two$stationing, two_two$tile_dry_g, col = "blue", pch = 16)+
+  lines(two_three$stationing, two_three$tile_dry_g, col = "green", pch = 16)+
+  lines(two_four$stationing, two_four$tile_dry_g, col = "grey", pch = 16)+
+  lines(two_five$stationing, two_five$tile_dry_g, col = "red", pch = 16)+
+  legend(x = "topleft", text.font = 4, 
+         fill = c("black","blue","green","grey","red"),text.col = "black", 
+         legend=c("2.1", "2.2", "2.3","2.4","2.5"))
+
+plot(three_one$stationing, three_one$tile_dry_g, pch = 16,
+              xlim = c(0, max(stationing_df$stationing[c(51:75)])),
+              ylim = c(0, max(stationing_df$tile_dry_g[c(51:75)])),
+              xlab = "Stationing (m)",
+              ylab = "Sediment Accumulation (g)",
+              main = "Section 3 X-Sec")+
+  points(three_two$stationing, three_two$tile_dry_g, col = "blue", pch = 16)+
+  points(three_three$stationing, three_three$tile_dry_g, col = "green", pch = 16)+
+  points(three_four$stationing, three_four$tile_dry_g, col = "grey", pch = 16)+
+  points(three_five$stationing, three_five$tile_dry_g, col = "red", pch = 16)+
+  lines(three_one$stationing, three_one$tile_dry_g, pch = 16)+
+  lines(three_two$stationing, three_two$tile_dry_g, col = "blue", pch = 16)+
+  lines(three_three$stationing, three_three$tile_dry_g, col = "green", pch = 16)+
+  lines(three_four$stationing, three_four$tile_dry_g, col = "grey", pch = 16)+
+  lines(three_five$stationing, three_five$tile_dry_g, col = "red", pch = 16)+
+  legend(x = "topleft", text.font = 4, 
+         fill = c("black","blue","green","grey","red"),text.col = "black", 
+         legend=c("3.1", "3.2", "3.3","3.4","3.5"))
+
+
+#=======================
+# Elevation
+#=======================
+
+soilring_vol <- pi*(2.5^2)*5.1 #cm^3
+tile_area <- (4.5^2)*(2.54^2) #cm^2
+
+clean_raw$bd <- clean_raw$bd_dry_g/soilring_vol
+clean_raw$delta_height <- (clean_raw$tile_dry_g / (clean_raw$bd * tile_area))
+elev_df <- clean_raw
+elev_df$elev <- as.integer(stationing_df$Elev_m_pro)
+elev_df$delta_h_bd <- (elev_df$elev + (elev_df$delta_height/ 100))
+elev_df$delta_h_meas <- (elev_df$elev + meas_h$avg_h_m)
+elev_df$station <- stationing_df$stationing
+
+e_one_one <- elev_df[c(1:5), c(1,3,6:12)]
+e_one_two <- elev_df[c(6:10), c(1,3,6:12)]
+e_one_three <- elev_df[c(11:15), c(1,3,6:12)]
+e_one_four <- elev_df[c(16:20), c(1,3,6:12)]
+e_one_five <- elev_df[c(21:25), c(1,3,6:12)]
+e_two_one <- elev_df[c(26:30), c(1,3,6:12)]
+e_two_two <- elev_df[c(31:35), c(1,3,6:12)]
+e_two_three <- elev_df[c(36:40), c(1,3,6:12)]
+e_two_four <- elev_df[c(41:45), c(1,3,6:12)]
+e_two_five <- elev_df[c(46:50), c(1,3,6:12)]
+e_three_one <- elev_df[c(51:55), c(1,3,6:12)]
+e_three_two <- elev_df[c(56:60), c(1,3,6:12)]
+e_three_three <- elev_df[c(61:65), c(1,3,6:12)]
+e_three_four <- elev_df[c(66:70), c(1,3,6:12)]
+e_three_five <- elev_df[c(71:75), c(1,3,6:12)]
+
+
+ele_plot_func <- function(s, eint, ebd, emeas, xsecname, lloc){
+  plot(s, eint, pch = 16,
+       xlab = "Stationing (m)", ylab = "Elevation (m)", main = xsecname)+
+    lines(s, eint)+ 
+    points(s, ebd, pch = 16, col = "blue")+
+    lines(s, ebd, col= "blue")+
+    points(s, emeas, pch = 16, col = "red")+
+    lines(s, emeas, col= "red")+
+    legend(x = lloc, text.font = 3, 
+           fill = c("black","blue","red"),text.col = "black", 
+           legend=c("Initial", "BD Height","Measured"))
+  }
+ele_plot_func(e_one_one$station, e_one_one$elev ,e_one_one$delta_h_bd, e_one_one$delta_h_meas, "X-Sec 1.1", "bottomleft")
+ele_plot_func(e_one_two$station, e_one_two$elev ,e_one_two$delta_h_bd, e_one_two$delta_h_meas, "X-Sec 1.2", "bottomleft")
+ele_plot_func(e_one_three$station, e_one_three$elev ,e_one_three$delta_h_bd, e_one_three$delta_h_meas, "X-Sec 1.3", "topright")
+ele_plot_func(e_one_four$station, e_one_four$elev ,e_one_four$delta_h_bd, e_one_four$delta_h_meas, "X-Sec 1.4", "bottomleft")
+ele_plot_func(e_one_five$station, e_one_five$elev ,e_one_five$delta_h_bd, e_one_five$delta_h_meas, "X-Sec 1.5", "topright")
+
+ele_plot_func(e_two_one$station, e_two_one$elev ,e_two_one$delta_h_bd, e_two_one$delta_h_meas, "X-Sec 2.1", "bottomleft")
+ele_plot_func(e_two_two$station, e_two_two$elev ,e_two_two$delta_h_bd, e_two_two$delta_h_meas, "X-Sec 2.2", "bottomleft")
+ele_plot_func(e_two_three$station, e_two_three$elev ,e_two_three$delta_h_bd, e_two_three$delta_h_meas, "X-Sec 2.3", "bottomleft")
+ele_plot_func(e_two_four$station, e_two_four$elev ,e_two_four$delta_h_bd, e_two_four$delta_h_meas, "X-Sec 2.4", "bottomleft")
+ele_plot_func(e_two_five$station, e_two_five$elev ,e_two_five$delta_h_bd, e_two_five$delta_h_meas, "X-Sec 2.5", "bottomleft")
+
+ele_plot_func(e_three_one$station, e_three_one$elev ,e_three_one$delta_h_bd, e_three_one$delta_h_meas, "X-Sec 3.1", "bottomleft")
+ele_plot_func(e_three_two$station, e_three_two$elev ,e_three_two$delta_h_bd, e_three_two$delta_h_meas, "X-Sec 3.2", "bottomleft")
+ele_plot_func(e_three_three$station, e_three_three$elev ,e_three_three$delta_h_bd, e_three_three$delta_h_meas, "X-Sec 3.3", "bottomleft")
+ele_plot_func(e_three_four$station, e_three_four$elev ,e_three_four$delta_h_bd, e_three_four$delta_h_meas, "X-Sec 3.4", "bottomleft")
+ele_plot_func(e_three_five$station, e_three_five$elev ,e_three_five$delta_h_bd, e_three_five$delta_h_meas, "X-Sec 3.5", "bottomright")
+
