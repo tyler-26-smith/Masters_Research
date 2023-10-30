@@ -1,0 +1,454 @@
+rm(list=ls())
+setwd("C:/Users/tylersmith22/Documents/Micro Plastics/SL_tile_sed_analy")
+clean_raw <- read.csv("clean_raw.csv")
+meas_h <- read.csv("meas_height.csv")
+setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy")
+stationing_df <- read.csv("corr_stationing.csv")
+
+
+
+plot(stationing_df$stationing[c(1:25)], stationing_df$tile_dry_g[c(1:25)], pch = 16,
+     xlim = c(0, max(stationing_df$stationing[c(1:75)])),
+     ylim = c(0, max(stationing_df$tile_dry_g[c(1:75)])),
+     xlab = "Stationing (m)",
+     ylab = "Sediment Accumulation (g)",
+     main = "SL Sediment Accumulation")+
+  points(stationing_df$stationing[c(26:50)], stationing_df$tile_dry_g[c(26:50)], pch = 16, col ="blue")+
+  points(stationing_df$stationing[c(51:75)], stationing_df$tile_dry_g[c(51:75)], pch = 16, col = "red")+
+  legend(x = "topright", text.font = 4, 
+         fill = c("black","blue","red"),text.col = "black", 
+         legend=c("x-secs 1", "x-secs 2", "x-secs 3"))
+
+one_one <- stationing_df[c(1:5), c(2,4,8:11)]
+one_two <- stationing_df[c(6:10), c(2,4,8:11)]
+one_three <- stationing_df[c(11:15), c(2,4,8:11)]
+one_four <- stationing_df[c(16:20), c(2,4,8:11)]
+one_five <- stationing_df[c(21:25), c(2,4,8:11)]
+two_one <- stationing_df[c(26:30), c(2,4,8:11)]
+two_two <- stationing_df[c(31:35), c(2,4,8:11)]
+two_three <- stationing_df[c(36:40), c(2,4,8:11)]
+two_four <- stationing_df[c(41:45), c(2,4,8:11)]
+two_five <- stationing_df[c(46:50), c(2,4,8:11)]
+three_one <- stationing_df[c(51:55), c(2,4,8:11)]
+three_two <- stationing_df[c(56:60), c(2,4,8:11)]
+three_three <- stationing_df[c(61:65), c(2,4,8:11)]
+three_four <- stationing_df[c(66:70), c(2,4,8:11)]
+three_five <- stationing_df[c(71:75), c(2,4,8:11)]
+
+plot(one_one$stationing, one_one$tile_dry_g, pch = 16,
+     xlim = c(0, max(stationing_df$stationing[c(1:25)])),
+     ylim = c(0, max(stationing_df$tile_dry_g[c(1:25)])),
+     xlab = "Stationing (m)",
+     ylab = "Sediment Accumulation (g)",
+     main = "Section 1 X-Sec")+
+  points(one_two$stationing, one_two$tile_dry_g, col = "blue", pch = 16)+
+  points(one_three$stationing, one_three$tile_dry_g, col = "green", pch = 16)+
+  points(one_four$stationing, one_four$tile_dry_g, col = "orange", pch = 16)+
+  points(one_five$stationing, one_five$tile_dry_g, col = "red", pch = 16)+
+  lines(one_one$stationing, one_one$tile_dry_g, pch = 16)+
+  lines(one_two$stationing, one_two$tile_dry_g, col = "blue", pch = 16)+
+  lines(one_three$stationing, one_three$tile_dry_g, col = "green", pch = 16)+
+  lines(one_four$stationing, one_four$tile_dry_g, col = "orange", pch = 16)+
+  lines(one_five$stationing, one_five$tile_dry_g, col = "red", pch = 16)+
+  legend(x = "topright", text.font = 4, 
+         fill = c("black","blue","green","orange","red"),text.col = "black", 
+         legend=c("1.1", "1.2", "1.3","1.4","1.5"))
+
+plot(two_one$stationing, two_one$tile_dry_g, pch = 16,
+              xlim = c(0, max(stationing_df$stationing[c(26:50)])),
+              ylim = c(0, max(stationing_df$tile_dry_g[c(26:50)])),
+              xlab = "Stationing (m)",
+              ylab = "Sediment Accumulation (g)",
+              main = "Section 2 X-Sec")+
+  points(two_two$stationing, two_two$tile_dry_g, col = "blue", pch = 16)+
+  points(two_three$stationing, two_three$tile_dry_g, col = "green", pch = 16)+
+  points(two_four$stationing, two_four$tile_dry_g, col = "orange", pch = 16)+
+  points(two_five$stationing, two_five$tile_dry_g, col = "red", pch = 16)+
+  lines(two_one$stationing, two_one$tile_dry_g, pch = 16)+
+  lines(two_two$stationing, two_two$tile_dry_g, col = "blue", pch = 16)+
+  lines(two_three$stationing, two_three$tile_dry_g, col = "green", pch = 16)+
+  lines(two_four$stationing, two_four$tile_dry_g, col = "orange", pch = 16)+
+  lines(two_five$stationing, two_five$tile_dry_g, col = "red", pch = 16)+
+  legend(x = "topright", text.font = 4, 
+         fill = c("black","blue","green","orange","red"),text.col = "black", 
+         legend=c("2.1", "2.2", "2.3","2.4","2.5"))
+
+plot(three_one$stationing, three_one$tile_dry_g, pch = 16,
+              xlim = c(0, max(stationing_df$stationing[c(51:75)])),
+              ylim = c(0, max(stationing_df$tile_dry_g[c(51:75)])),
+              xlab = "Stationing (m)",
+              ylab = "Sediment Accumulation (g)",
+              main = "Section 3 X-Sec")+
+  points(three_two$stationing, three_two$tile_dry_g, col = "blue", pch = 16)+
+  points(three_three$stationing, three_three$tile_dry_g, col = "green", pch = 16)+
+  points(three_four$stationing, three_four$tile_dry_g, col = "orange", pch = 16)+
+  points(three_five$stationing, three_five$tile_dry_g, col = "red", pch = 16)+
+  lines(three_one$stationing, three_one$tile_dry_g, pch = 16)+
+  lines(three_two$stationing, three_two$tile_dry_g, col = "blue", pch = 16)+
+  lines(three_three$stationing, three_three$tile_dry_g, col = "green", pch = 16)+
+  lines(three_four$stationing, three_four$tile_dry_g, col = "orange", pch = 16)+
+  lines(three_five$stationing, three_five$tile_dry_g, col = "red", pch = 16)+
+  legend(x = "topright", text.font = 4, 
+         fill = c("black","blue","green","orange","red"),text.col = "black", 
+         legend=c("3.1", "3.2", "3.3","3.4","3.5"))
+
+#=======================
+# log base 10 plots
+#=======================
+
+plot(stationing_df$stationing[c(1:25)], log10(stationing_df$tile_dry_g[c(1:25)]), pch = 16,
+     xlim = c(0, max(stationing_df$stationing[c(1:75)])),
+     ylim = log10(c(0.01, max(stationing_df$tile_dry_g[c(1:75)]))),
+     xlab = "Stationing (m)",
+     ylab = "Sediment Accumulation (g)",
+     main = "SL Sediment Accumulation")+
+  points(stationing_df$stationing[c(26:50)], log10(stationing_df$tile_dry_g[c(26:50)]), pch = 16, col ="blue")+
+  points(stationing_df$stationing[c(51:75)], log10(stationing_df$tile_dry_g[c(51:75)]), pch = 16, col = "red")+
+  legend(x = "bottomright", text.font = 4, 
+         fill = c("black","blue","red"),text.col = "black", 
+         legend=c("x-secs 1", "x-secs 2", "x-secs 3"))
+
+plot(one_one$stationing, log10(one_one$tile_dry_g), pch = 16,
+     xlim = c(0, max(stationing_df$stationing[c(1:25)])),
+     ylim = log10(c(0.01, max(stationing_df$tile_dry_g[c(1:25)]))),
+     xlab = "Stationing (m)",
+     ylab = "Sediment Accumulation (g)",
+     main = "Section 1 X-Sec")+
+  points(one_two$stationing, log10(one_two$tile_dry_g), col = "blue", pch = 16)+
+  points(one_three$stationing, log10(one_three$tile_dry_g), col = "green", pch = 16)+
+  points(one_four$stationing, log10(one_four$tile_dry_g), col = "orange", pch = 16)+
+  points(one_five$stationing, log10(one_five$tile_dry_g), col = "red", pch = 16)+
+  lines(one_one$stationing, log10(one_one$tile_dry_g), pch = 16)+
+  lines(one_two$stationing, log10(one_two$tile_dry_g), col = "blue", pch = 16)+
+  lines(one_three$stationing, log10(one_three$tile_dry_g), col = "green", pch = 16)+
+  lines(one_four$stationing, log10(one_four$tile_dry_g), col = "orange", pch = 16)+
+  lines(one_five$stationing, log10(one_five$tile_dry_g), col = "red", pch = 16)+
+  legend(x = "right", text.font = 4, 
+         fill = c("black","blue","green","orange","red"),text.col = "black", 
+         legend=c("1.1", "1.2", "1.3","1.4","1.5"))
+
+plot(two_one$stationing, log10(two_one$tile_dry_g), pch = 16,
+     xlim = c(0, max(stationing_df$stationing[c(26:50)])),
+     ylim = log10(c(0.01, max(stationing_df$tile_dry_g[c(26:50)]))),
+     xlab = "Stationing (m)",
+     ylab = "Sediment Accumulation (g)",
+     main = "Section 2 X-Sec")+
+  points(two_two$stationing, log10(two_two$tile_dry_g), col = "blue", pch = 16)+
+  points(two_three$stationing, log10(two_three$tile_dry_g), col = "green", pch = 16)+
+  points(two_four$stationing, log10(two_four$tile_dry_g), col = "orange", pch = 16)+
+  points(two_five$stationing, log10(two_five$tile_dry_g), col = "red", pch = 16)+
+  lines(two_one$stationing, log10(two_one$tile_dry_g), pch = 16)+
+  lines(two_two$stationing, log10(two_two$tile_dry_g), col = "blue", pch = 16)+
+  lines(two_three$stationing, log10(two_three$tile_dry_g), col = "green", pch = 16)+
+  lines(two_four$stationing, log10(two_four$tile_dry_g), col = "orange", pch = 16)+
+  lines(two_five$stationing, log10(two_five$tile_dry_g), col = "red", pch = 16)+
+  legend(x = "right", text.font = 4, 
+         fill = c("black","blue","green","orange","red"),text.col = "black", 
+         legend=c("2.1", "2.2", "2.3","2.4","2.5"))
+
+plot(three_one$stationing, log10(three_one$tile_dry_g), pch = 16,
+     xlim = c(0, max(stationing_df$stationing[c(51:75)])),
+     ylim = log10(c(0.01, max(stationing_df$tile_dry_g[c(51:75)]))),
+     xlab = "Stationing (m)",
+     ylab = "Sediment Accumulation (g)",
+     main = "Section 3 X-Sec")+
+  points(three_two$stationing, log10(three_two$tile_dry_g), col = "blue", pch = 16)+
+  points(three_three$stationing, log10(three_three$tile_dry_g), col = "green", pch = 16)+
+  points(three_four$stationing, log10(three_four$tile_dry_g), col = "orange", pch = 16)+
+  points(three_five$stationing, log10(three_five$tile_dry_g), col = "red", pch = 16)+
+  lines(three_one$stationing, log10(three_one$tile_dry_g), pch = 16)+
+  lines(three_two$stationing, log10(three_two$tile_dry_g), col = "blue", pch = 16)+
+  lines(three_three$stationing, log10(three_three$tile_dry_g), col = "green", pch = 16)+
+  lines(three_four$stationing, log10(three_four$tile_dry_g), col = "orange", pch = 16)+
+  lines(three_five$stationing, log10(three_five$tile_dry_g), col = "red", pch = 16)+
+  legend(x = "right", text.font = 4, 
+         fill = c("black","blue","green","orange","red"),text.col = "black", 
+         legend=c("3.1", "3.2", "3.3","3.4","3.5"))
+
+#=======================
+# Elevation
+#=======================
+
+soilring_vol <- pi*(2.5^2)*5.1 #cm^3
+tile_area <- (4.5^2)*(2.54^2) #cm^2
+
+clean_raw$bd <- clean_raw$bd_dry_g/soilring_vol
+clean_raw$delta_height <- (clean_raw$tile_dry_g / (clean_raw$bd * tile_area))
+elev_df <- clean_raw
+elev_df$elev <- as.integer(stationing_df$Elev_m_pro)
+elev_df$delta_h_bd <- (elev_df$elev + (elev_df$delta_height/ 100))
+elev_df$delta_h_meas <- (elev_df$elev + meas_h$avg_h_m)
+elev_df$station <- stationing_df$stationing
+
+e_one_one <- elev_df[c(1:5), c(1,3,6:11)]
+e_one_two <- elev_df[c(6:10), c(1,3,6:11)]
+e_one_three <- elev_df[c(11:15), c(1,3,6:11)]
+e_one_four <- elev_df[c(16:20), c(1,3,6:11)]
+e_one_five <- elev_df[c(21:25), c(1,3,6:11)]
+e_two_one <- elev_df[c(26:30), c(1,3,6:11)]
+e_two_two <- elev_df[c(31:35), c(1,3,6:11)]
+e_two_three <- elev_df[c(36:40), c(1,3,6:11)]
+e_two_four <- elev_df[c(41:45), c(1,3,6:11)]
+e_two_five <- elev_df[c(46:50), c(1,3,6:11)]
+e_three_one <- elev_df[c(51:55), c(1,3,6:11)]
+e_three_two <- elev_df[c(56:60), c(1,3,6:11)]
+e_three_three <- elev_df[c(61:65), c(1,3,6:11)]
+e_three_four <- elev_df[c(66:70), c(1,3,6:11)]
+e_three_five <- elev_df[c(71:75), c(1,3,6:11)]
+
+
+ele_plot_func <- function(s, eint, ebd, emeas, xsecname, lloc){
+  plot(s, eint, pch = 16,
+       xlab = "Stationing (m)", ylab = "Elevation (m)", main = xsecname)+
+    lines(s, eint)+ 
+    points(s, ebd, pch = 16, col = "blue")+
+    lines(s, ebd, col= "blue")+
+    points(s, emeas, pch = 16, col = "red")+
+    lines(s, emeas, col= "red")+
+    legend(x = lloc, text.font = 3, 
+           fill = c("black","blue","red"),text.col = "black", 
+           legend=c("Initial", "BD Height","Measured"))
+  }
+ele_plot_func(e_one_one$station, e_one_one$elev ,e_one_one$delta_h_bd, e_one_one$delta_h_meas, "X-Sec 1.1", "bottomright")
+ele_plot_func(e_one_two$station, e_one_two$elev ,e_one_two$delta_h_bd, e_one_two$delta_h_meas, "X-Sec 1.2", "bottomright")
+ele_plot_func(e_one_three$station, e_one_three$elev ,e_one_three$delta_h_bd, e_one_three$delta_h_meas, "X-Sec 1.3", "topleft")
+ele_plot_func(e_one_four$station, e_one_four$elev ,e_one_four$delta_h_bd, e_one_four$delta_h_meas, "X-Sec 1.4", "bottomright")
+ele_plot_func(e_one_five$station, e_one_five$elev ,e_one_five$delta_h_bd, e_one_five$delta_h_meas, "X-Sec 1.5", "topleft")
+
+ele_plot_func(e_two_one$station, e_two_one$elev ,e_two_one$delta_h_bd, e_two_one$delta_h_meas, "X-Sec 2.1", "bottomright")
+ele_plot_func(e_two_two$station, e_two_two$elev ,e_two_two$delta_h_bd, e_two_two$delta_h_meas, "X-Sec 2.2", "bottomright")
+ele_plot_func(e_two_three$station, e_two_three$elev ,e_two_three$delta_h_bd, e_two_three$delta_h_meas, "X-Sec 2.3", "bottomright")
+ele_plot_func(e_two_four$station, e_two_four$elev ,e_two_four$delta_h_bd, e_two_four$delta_h_meas, "X-Sec 2.4", "bottomright")
+ele_plot_func(e_two_five$station, e_two_five$elev ,e_two_five$delta_h_bd, e_two_five$delta_h_meas, "X-Sec 2.5", "bottomright")
+
+ele_plot_func(e_three_one$station, e_three_one$elev ,e_three_one$delta_h_bd, e_three_one$delta_h_meas, "X-Sec 3.1", "bottomright")
+ele_plot_func(e_three_two$station, e_three_two$elev ,e_three_two$delta_h_bd, e_three_two$delta_h_meas, "X-Sec 3.2", "bottomright")
+ele_plot_func(e_three_three$station, e_three_three$elev ,e_three_three$delta_h_bd, e_three_three$delta_h_meas, "X-Sec 3.3", "bottomright")
+ele_plot_func(e_three_four$station, e_three_four$elev ,e_three_four$delta_h_bd, e_three_four$delta_h_meas, "X-Sec 3.4", "bottomright")
+ele_plot_func(e_three_five$station, e_three_five$elev ,e_three_five$delta_h_bd, e_three_five$delta_h_meas, "X-Sec 3.5", "bottomright")
+
+
+
+
+#===========================
+# Elevation Relative to Bank
+#===========================
+
+
+fp1.1 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.1.csv")
+fp1.2 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.2.csv")
+fp1.3 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.3.csv")
+fp1.4 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.4.csv")
+fp1.5 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.5.csv")
+fp2.1 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.1.csv")
+fp2.2 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.2.csv")
+fp2.3 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.3.csv")
+fp2.4 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.4.csv")
+fp2.5 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.5.csv")
+fp3.1 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.1.csv")
+fp3.2 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.2.csv")
+fp3.3 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.3.csv")
+fp3.4 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.4.csv")
+fp3.5 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.5.csv")
+
+
+
+fp1.1$change_from_bank= 0
+fp1.1$change_from_bank[1] = fp1.1$Elevation[1]
+  
+  for (i in 1:nrow(fp1.1)) {
+    fp1.1$change_from_bank[i] <- ((fp1.1$Elevation[i] - fp1.1$Elevation[1])/ fp1.1$Elevation[1])*100
+  }
+
+library(ggplot2)
+
+ggplot(data = fp1.1, aes(x = Distance, y = Elevation))+
+  geom_point() +
+  geom_point(data = one_one, aes(x=stationing, y=Elev_m_pro, size=tile_dry_g, color = "red"))+
+  geom_point(alpha=0.5)+
+  scale_size(range = c(6, 20), name = "sediment accumulated")+
+  scale_fill_viridis(discrete=TRUE, guide=FALSE, option="A")+
+  theme_ipsum() +
+  theme(legend.position="bottom") +
+  ylab("Elevation") +
+  xlab("Stationing") +
+  theme(legend.position = "none")
+
+
+plotting_func <- function(fp_df, xsec_df, xsecname, lable_hjust, lable_vjust){
+  library(ggplot2)
+  library(dplyr)
+  library(hrbrthemes)
+  library(viridis)
+  
+  finished_plot <- ggplot(data = fp_df, aes(x = Distance, y = Elevation)) +
+    geom_point() +
+    geom_point(data = xsec_df, aes(x = stationing, y = Elev_m_pro, size = tile_dry_g, color = "red")) +  
+    geom_text(data = xsec_df, aes(x = stationing, y = Elev_m_pro, label = Name), hjust = lable_hjust, vjust = lable_vjust) + 
+    geom_point(alpha = 0.5) +
+    scale_size(range = c(1, 20), name = "sediment accumulated") +
+    scale_fill_viridis(discrete = TRUE, guide = FALSE, option = "A") +
+    ggtitle(xsecname) +
+    theme_ipsum() +
+    theme(legend.position = "bottom") +
+    ylab("Elevation") +
+    xlab("Stationing") +
+    theme(legend.position = "none")
+  
+  return(finished_plot)
+}
+
+plotting_func(fp1.1, one_one, "Cross Section 1.1", 0, 1)
+plotting_func(fp1.2, one_two, "Cross Section 1.2", 0, 1)
+plotting_func(fp1.3, one_three, "Cross Section 1.3",0, 1)
+plotting_func(fp1.4, one_four, "Cross Section 1.4",0, 2)
+plotting_func(fp1.5, one_five, "Cross Section 1.5",0, 1)
+plotting_func(fp2.1, two_one, "Cross Section 2.1",0, 1)
+plotting_func(fp2.2, two_two, "Cross Section 2.2",0, 1)
+plotting_func(fp2.3, two_three, "Cross Section 2.3",0, 1)
+plotting_func(fp2.4, two_four, "Cross Section 2.4",0, 1)
+plotting_func(fp2.5, two_five, "Cross Section 2.5",0, 1)
+plotting_func(fp3.1, three_one, "Cross Section 3.1",0, 1)
+plotting_func(fp3.2, three_two, "Cross Section 3.2",0, 1)
+plotting_func(fp3.3, three_three, "Cross Section 3.3",0, 1)
+plotting_func(fp3.4, three_four, "Cross Section 3.4",0, 1)
+plotting_func(fp3.5, three_five, "Cross Section 3.5",1, 1)
+
+
+#====================================
+# Extended Elevation Relative to Bank
+#====================================
+
+read_func <- function(doc_name){
+  setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/xsec_extend_profile")
+  df <- read.csv(doc_name)
+  df$Distance <- rev(df$Distance)
+  #write.csv(df, file = doc_name, row.names = FALSE)
+  setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy")
+  return(df)
+}
+
+ext1.1 <- read_func("fp1.1.csv")
+ext1.2 <- read_func("fp1.2.csv")
+ext1.3 <- read_func("fp1.3.csv")
+ext1.4 <- read_func("fp1.4.csv")
+ext1.5 <- read_func("fp1.5.csv")
+ext2.1 <- read_func("fp2.1.csv")
+ext2.2 <- read_func("fp2.2.csv")
+ext2.3 <- read_func("fp2.3.csv")
+ext2.4 <- read_func("fp2.4.csv")
+ext2.5 <- read_func("fp2.5.csv")
+ext3.1 <- read_func("fp3.1.csv")
+ext3.2 <- read_func("fp3.2.csv")
+ext3.3 <- read_func("fp3.3.csv")
+ext3.4 <- read_func("fp3.4.csv")
+ext3.5 <- read_func("fp3.5.csv")
+
+setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/xsec_extend_profile")
+ext_points <- read.csv("stationing_points.csv")
+setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy")
+
+
+select_func <- function(xs_name){
+  select_rows <- ext_points[ext_points$RID == xs_name, ]
+  return(select_rows)
+}
+
+
+ext_plot_func <- function(ext_df, xsecname, p_title, lable_hjust, lable_vjust){
+  library(ggplot2)
+  library(dplyr)
+  library(hrbrthemes)
+  library(viridis)
+  
+  finished_plot <- ggplot(data = ext_df, aes(x = Distance, y = Elevation)) +
+    geom_line() +
+    geom_point(data = select_func(xsecname), aes(x = MEAS, y = Elev_m_pro, size = tile_dry_g, color = "red")) +  
+    geom_text(data = select_func(xsecname), aes(x = MEAS, y = Elev_m_pro, label = Name), hjust = lable_hjust, vjust = lable_vjust) + 
+    geom_point(alpha = 0.5) +
+    scale_size(range = c(1, 20), name = "sediment accumulated") +
+    #scale_fill_viridis(discrete = TRUE, guide = FALSE, option = "A") +
+    ggtitle(p_title) +
+    theme_ipsum() +
+    theme(legend.position = "bottom") +
+    ylab("Elevation") +
+    xlab("Stationing") +
+    theme(legend.position = "none")
+  
+  return(finished_plot)
+}
+
+ext_plot_func(ext1.1, 1.1, "Cross Section 1.1", 0, 1)
+ext_plot_func(ext1.2, 1.2, "Cross Section 1.2", 0, 1)
+ext_plot_func(ext1.3, 1.3, "Cross Section 1.3",0, 1)
+ext_plot_func(ext1.4, 1.4, "Cross Section 1.4",0, 2)
+ext_plot_func(ext1.5, 1.5, "Cross Section 1.5",0, 1)
+ext_plot_func(ext2.1, 2.1, "Cross Section 2.1",0, 1)
+ext_plot_func(ext2.2, 2.2, "Cross Section 2.2",0, 1)
+ext_plot_func(ext2.3, 2.3, "Cross Section 2.3",0, 1)
+ext_plot_func(ext2.4, 2.4, "Cross Section 2.4",0, 1)
+ext_plot_func(ext2.5, 2.5, "Cross Section 2.5",0, 1)
+ext_plot_func(ext3.1, 3.1, "Cross Section 3.1",0, 1)
+ext_plot_func(ext3.2, 3.2, "Cross Section 3.2",0, 1)
+ext_plot_func(ext3.3, 3.3, "Cross Section 3.3",0, 1)
+ext_plot_func(ext3.4, 3.4, "Cross Section 3.4",0, 1)
+ext_plot_func(ext3.5, 3.5, "Cross Section 3.5",1, 1)
+
+
+max_elev <- max(ext1.1[3], ext1.2[3], ext1.3[3], ext1.4[3], ext1.5[3],
+                ext2.1[3], ext2.2[3], ext2.3[3], ext2.4[3], ext2.5[3],
+                ext3.1[3], ext3.2[3], ext3.3[3], ext3.4[3], ext3.5[3])
+print(max_elev)
+
+min_elev <- min(ext1.1[3], ext1.2[3], ext1.3[3], ext1.4[3], ext1.5[3],
+                ext2.1[3], ext2.2[3], ext2.3[3], ext2.4[3], ext2.5[3],
+                ext3.1[3], ext3.2[3], ext3.3[3], ext3.4[3], ext3.5[3])
+print(min_elev)
+
+max_weight <- max(ext_points$tile_dry_g)
+print(max_weight)
+min_weight <- min(ext_points$tile_dry_g)
+print(min_weight)
+
+test_func <- function(ext_df, xsecname, m_title){
+  library(ggplot2)
+  final_plot <- ggplot(data = ext_df, aes(x = Distance, y = Elevation)) +
+    geom_line() + 
+    ylim(min_elev, max_elev) +
+    geom_point(data = select_func(xsecname), 
+               aes(x = MEAS, y = Elev_m_pro, 
+                   size = tile_dry_g, 
+                   color = as.character(Name)), alpha = 0.5)+
+    scale_color_manual(values = c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E"),
+                       name = "Tile ID") +
+    scale_size(range = c(1, 11), 
+               limits = c(0, 650),
+               breaks = c(0.001, 65, 130, 195, 260, 325, 390, 455, 520, 585, 650),
+               labels = c("0", "0-65", "65-130", "130-195", "195-260", "260-325",
+                          "325-390", "390-455", "455-520", "520-585", "585-650"), 
+               name = "Sediment Accumulated (g)") +
+    ggtitle(m_title) +
+    xlab("Stationing") +
+    ylab("Elevation")
+  return(final_plot)
+  
+  
+}
+
+
+test_func(ext1.1, 1.1, "Cross Section 1.1")
+test_func(ext1.2, 1.2, "Cross Section 1.2")
+test_func(ext1.3, 1.3, "Cross Section 1.3")
+test_func(ext1.4, 1.4, "Cross Section 1.4")
+test_func(ext1.5, 1.5, "Cross Section 1.5")
+test_func(ext2.1, 2.1, "Cross Section 2.1")
+test_func(ext2.2, 2.2, "Cross Section 2.2")
+test_func(ext2.3, 2.3, "Cross Section 2.3")
+test_func(ext2.4, 2.4, "Cross Section 2.4")
+test_func(ext2.5, 2.5, "Cross Section 2.5")
+test_func(ext3.1, 3.1, "Cross Section 3.1")
+test_func(ext3.2, 3.2, "Cross Section 3.2")
+test_func(ext3.3, 3.3, "Cross Section 3.3")
+test_func(ext3.4, 3.4, "Cross Section 3.4")
+test_func(ext3.5, 3.5, "Cross Section 3.5")
+
