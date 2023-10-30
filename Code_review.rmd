@@ -1,8 +1,7 @@
 rm(list=ls())
-setwd("C:/Users/tylersmith22/Documents/Micro Plastics/SL_tile_sed_analy")
+setwd("C:/Users/tylersmith22/Documents/Masters_Research/data")
 clean_raw <- read.csv("clean_raw.csv")
 meas_h <- read.csv("meas_height.csv")
-setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy")
 stationing_df <- read.csv("corr_stationing.csv")
 
 
@@ -235,30 +234,25 @@ ele_plot_func(e_three_five$station, e_three_five$elev ,e_three_five$delta_h_bd, 
 #===========================
 
 
-fp1.1 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.1.csv")
-fp1.2 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.2.csv")
-fp1.3 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.3.csv")
-fp1.4 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.4.csv")
-fp1.5 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp1.5.csv")
-fp2.1 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.1.csv")
-fp2.2 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.2.csv")
-fp2.3 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.3.csv")
-fp2.4 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.4.csv")
-fp2.5 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp2.5.csv")
-fp3.1 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.1.csv")
-fp3.2 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.2.csv")
-fp3.3 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.3.csv")
-fp3.4 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.4.csv")
-fp3.5 <- read.csv("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/Lidar profiles prelim analy/fp3.5.csv")
+fp1.1 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp1.1.csv")
+fp1.2 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp1.2.csv")
+fp1.3 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp1.3.csv")
+fp1.4 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp1.4.csv")
+fp1.5 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp1.5.csv")
+fp2.1 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp2.1.csv")
+fp2.2 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp2.2.csv")
+fp2.3 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp2.3.csv")
+fp2.4 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp2.4.csv")
+fp2.5 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp2.5.csv")
+fp3.1 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp3.1.csv")
+fp3.2 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp3.2.csv")
+fp3.3 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp3.3.csv")
+fp3.4 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp3.4.csv")
+fp3.5 <- read.csv("C:/Users/tylersmith22/Documents/Masters_Research/data/fp3.5.csv")
 
-
-
-fp1.1$change_from_bank= 0
-fp1.1$change_from_bank[1] = fp1.1$Elevation[1]
-  
-  for (i in 1:nrow(fp1.1)) {
-    fp1.1$change_from_bank[i] <- ((fp1.1$Elevation[i] - fp1.1$Elevation[1])/ fp1.1$Elevation[1])*100
-  }
+# ==============
+# Prlim Plotting
+# ==============
 
 library(ggplot2)
 
@@ -320,11 +314,10 @@ plotting_func(fp3.5, three_five, "Cross Section 3.5",1, 1)
 #====================================
 
 read_func <- function(doc_name){
-  setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/xsec_extend_profile")
+  setwd("C:/Users/tylersmith22/Documents/Masters_Research/data")
   df <- read.csv(doc_name)
   df$Distance <- rev(df$Distance)
   #write.csv(df, file = doc_name, row.names = FALSE)
-  setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy")
   return(df)
 }
 
@@ -343,11 +336,12 @@ ext3.2 <- read_func("fp3.2.csv")
 ext3.3 <- read_func("fp3.3.csv")
 ext3.4 <- read_func("fp3.4.csv")
 ext3.5 <- read_func("fp3.5.csv")
-
-setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy/xsec_extend_profile")
 ext_points <- read.csv("stationing_points.csv")
-setwd("C:/Users/tylersmith22/Documents/Micro Plastics/R_analy")
 
+
+# =========
+# Dead code
+# =========
 
 select_func <- function(xs_name){
   select_rows <- ext_points[ext_points$RID == xs_name, ]
@@ -394,6 +388,9 @@ ext_plot_func(ext3.3, 3.3, "Cross Section 3.3",0, 1)
 ext_plot_func(ext3.4, 3.4, "Cross Section 3.4",0, 1)
 ext_plot_func(ext3.5, 3.5, "Cross Section 3.5",1, 1)
 
+# =====================
+# Working Graphing Code
+# =====================
 
 max_elev <- max(ext1.1[3], ext1.2[3], ext1.3[3], ext1.4[3], ext1.5[3],
                 ext2.1[3], ext2.2[3], ext2.3[3], ext2.4[3], ext2.5[3],
@@ -409,6 +406,8 @@ max_weight <- max(ext_points$tile_dry_g)
 print(max_weight)
 min_weight <- min(ext_points$tile_dry_g)
 print(min_weight)
+
+
 
 test_func <- function(ext_df, xsecname, m_title){
   library(ggplot2)
@@ -435,6 +434,9 @@ test_func <- function(ext_df, xsecname, m_title){
   
 }
 
+# ==============
+# Final Graphing
+# ==============
 
 test_func(ext1.1, 1.1, "Cross Section 1.1")
 test_func(ext1.2, 1.2, "Cross Section 1.2")
